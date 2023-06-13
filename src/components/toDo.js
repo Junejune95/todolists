@@ -1,8 +1,14 @@
 import React from 'react';
 
-const ToDo=({todo})=>{
+const ToDo=({todo,handleToggle})=>{
+    const handleEvent=(e)=>{
+        console.log(e.currentTarget.id)
+        e.preventDefault();
+        handleToggle(e.currentTarget.id)
+    }
+
     return (
-        <div className={todo.complete ? 'strike' : ''}>
+        <div id={todo.id} value={todo.id} onClick={handleEvent} className={todo.complete ? 'todo strike' : 'todo'}>
             {todo.task}
         </div>
     )

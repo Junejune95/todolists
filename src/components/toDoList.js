@@ -1,12 +1,12 @@
 import React from 'react';
 import ToDo from './toDo';
 
-const ToDoList = ({ toDoList }) => {
+const ToDoList = ({ toDoList,handleToggle,handleFilter }) => {
     return(
         <div>
             {toDoList.map(todo => {
                 return (
-                    <ToDo todo={todo} key={todo.id}/>
+                    <ToDo  key={todo.id+todo.task} todo={todo} handleToggle={handleToggle}/>
                 )
             })}
         </div>
